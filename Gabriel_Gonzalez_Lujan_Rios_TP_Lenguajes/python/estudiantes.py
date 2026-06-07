@@ -149,7 +149,7 @@ while (True):
     opcion = input("Seleccione una opción: "
                    "1. Mostrar estudiantes\n"
                    "2. Calcular promedio\n"
-                   "3. Contar estados\n"
+                   "3. Contar quien paso y quien no\n"
                    "4. Buscar por código\n"
                    "5. Ordenar por puntaje\n"
                    "6. Obtener mayor puntaje\n"
@@ -160,7 +160,7 @@ while (True):
 
     if opcion == "1":
         mostrar_estudiantes(estudiantes)
-        a=input("\nPresione cualquier tecla para continuar...")
+        a=input("\nPresione Enter para continuar...")
         if(a):
             pass
 
@@ -168,53 +168,54 @@ while (True):
         promedio = calcular_promedio(estudiantes)
         print("\nPromedio general:", round(promedio, 2))
         a=input("\nPresione Enter para continuar...")
+        if(a):
+            pass
+
     elif opcion == "3":
         aprobados, reprobados = contar_estados(estudiantes)
         print("Cantidad de aprobados:", aprobados)
         print("Cantidad de reprobados:", reprobados)
         a=input("\nPresione Enter para continuar...")
-
+        if(a):
+            pass
 
     elif opcion == "4":
         print("\nBÚSQUEDA DE ESTUDIANTE POR CÓDIGO")
         codigo_buscado = "E007"
         resultado = buscar_por_codigo(estudiantes, codigo_buscado)
+        print("Estudiante encontrado:")
+        imprimir_estudiante(resultado)
+        a=input("\nPresione Enter para continuar...")
+        if(a):
+            pass
 
-        if resultado is not None:
-            print("Estudiante encontrado:")
-            imprimir_estudiante(resultado)
-        else:
-            print("Error: no existe un estudiante con el código", codigo_buscado)
-
-        print("\nCASO DE ERROR: BÚSQUEDA SIN RESULTADO")
-        codigo_inexistente = "E999"
-        resultado_error = buscar_por_codigo(estudiantes, codigo_inexistente)
-
-        if resultado_error is not None:
-            imprimir_estudiante(resultado_error)
-        else:
-            print("Error: no existe un estudiante con el código", codigo_inexistente)
-
-        input("\nPresione Enter para continuar...")
 
     elif opcion == "5":
         print("\nESTUDIANTES ORDENADOS POR PUNTAJE DE MAYOR A MENOR")
         ordenar_por_puntaje(estudiantes)
         mostrar_estudiantes(estudiantes)
-        input("\nPresione Enter para continuar...")
+        a=input("\nPresione Enter para continuar...")
+        if(a):
+            pass
+
 
 
     elif opcion == "6":
         print("\nESTUDIANTE CON MAYOR PUNTAJE")
         mayor = obtener_mayor_puntaje(estudiantes)
         imprimir_estudiante(mayor)
-        input("\nPresione Enter para continuar...")
+        a=input("\nPresione Enter para continuar...")
+        if(a):
+            pass
+
 
     elif opcion == "7":
         print("\nESTUDIANTE CON MENOR PUNTAJE")
         menor = obtener_menor_puntaje(estudiantes)
         imprimir_estudiante(menor)
-        input("\nPresione Enter para continuar...")
+        a=input("\nPresione Enter para continuar...")
+        if(a):
+            pass
 
     elif opcion == "8":
         print("\nVALIDACIÓN DE PUNTAJE FUERA DE RANGO")
@@ -223,7 +224,10 @@ while (True):
             print("El puntaje", puntaje_prueba, "es válido.")
         else:
             print("Error: el puntaje", puntaje_prueba, "está fuera del rango permitido.")
-        input("\nPresione Enter para continuar...")
+        a=input("\nPresione Enter para continuar...")
+        if(a):
+            pass
+
     elif opcion == "9":
         print("Saliendo del programa...")
         break
